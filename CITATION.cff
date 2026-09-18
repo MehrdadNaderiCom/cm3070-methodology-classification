@@ -5,9 +5,10 @@ type: software
 authors:
   - family-names: Naderi
     given-names: Mehrdad
-date-released: "2026-09-15"
+date-released: "2026-09-18"
 license: MIT
 version: "1.0"
+repository-code: "https://github.com/MehrdadNaderiCom/cm3070-methodology-classification"
 abstract: >-
   CM3070 final-project package for classifying research methodology
   from computing paper titles and abstracts, with a two-reader

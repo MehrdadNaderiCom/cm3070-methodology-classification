@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T03:53:19.850397+00:00",
+  "generated_utc": "2026-09-18T03:56:58.859645+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -16,8 +16,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 454,
-      "sha256": "cdc52072f495ef7396b55cc2fd708e4da208c9d502d4d758e63b5cdaed426a0f"
+      "bytes": 543,
+      "sha256": "03903ea358f5325a8aa07769cb75c33e4c5b48741d4b57db789d2dbc149c2de9"
     },
     {
       "path": "LICENSE",
@@ -421,8 +421,8 @@
     },
     {
       "path": "report/00_front.md",
-      "bytes": 2591,
-      "sha256": "26be507a7079b78dd6f1571ca4ef2be1da0c12646ec8841d17fe93645258907f"
+      "bytes": 2514,
+      "sha256": "1312bf7c811838260714296959f41bb2d945cde488ed1105b8e4efd288f297e4"
     },
     {
       "path": "report/01_introduction.md",
@@ -451,8 +451,8 @@
     },
     {
       "path": "report/06_conclusion.md",
-      "bytes": 5495,
-      "sha256": "9f9c70a24e482eb7ae5e0048bf60d246e8e87dd998401f04e90e139ca855def5"
+      "bytes": 5523,
+      "sha256": "6ee6a7c85fa8cd80b78590f1c2d63932bae3da96a934e7074890923316d746d6"
     },
     {
       "path": "report/07_references.md",
@@ -461,8 +461,8 @@
     },
     {
       "path": "report/Mehrdad_Naderi_Rebuilt_Report.pdf",
-      "bytes": 1035110,
-      "sha256": "49a3124118c7c9ed8eea321d234a3bf3a96a3e87e6b332ad2a5fc234551713bf"
+      "bytes": 1034912,
+      "sha256": "d0219c47c596acbc32ec36be41b338fbac8643d94fa22d2d25a22d7c4bdc7b52"
     },
     {
       "path": "scripts/build_figures.py",
