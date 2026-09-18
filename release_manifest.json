@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T03:56:58.859645+00:00",
+  "generated_utc": "2026-09-18T04:02:47.474716+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -418,51 +418,6 @@
       "path": "pyproject.toml",
       "bytes": 389,
       "sha256": "46fa626d0cd41b80ef2b2ee8bccfda4557acf183bf8e5d09efc933c882c0b461"
-    },
-    {
-      "path": "report/00_front.md",
-      "bytes": 2514,
-      "sha256": "1312bf7c811838260714296959f41bb2d945cde488ed1105b8e4efd288f297e4"
-    },
-    {
-      "path": "report/01_introduction.md",
-      "bytes": 6329,
-      "sha256": "d4a3378c504d11570d7b2ae98b509f06e5e2cae44ccb2ba1636c1d69b7df28a2"
-    },
-    {
-      "path": "report/02_literature.md",
-      "bytes": 16501,
-      "sha256": "aaff0c8851c6d97c782a50302df6544c7dbaa40ca84e592c38906a7f281aa94b"
-    },
-    {
-      "path": "report/03_design.md",
-      "bytes": 11775,
-      "sha256": "952d289b6aef9a4b0679385e91c000d7c2af7b2637cf77f2f35bbe21aa5f7b68"
-    },
-    {
-      "path": "report/04_implementation.md",
-      "bytes": 14497,
-      "sha256": "662f2200cab44aea7bb171de6144094b3a364679c7f4b9f9b85fee3ac5491042"
-    },
-    {
-      "path": "report/05_evaluation.md",
-      "bytes": 17347,
-      "sha256": "49fbaee846ab4da083f1077776e54c157a4e25191450bd9e1d86b1a0f341bd42"
-    },
-    {
-      "path": "report/06_conclusion.md",
-      "bytes": 5523,
-      "sha256": "6ee6a7c85fa8cd80b78590f1c2d63932bae3da96a934e7074890923316d746d6"
-    },
-    {
-      "path": "report/07_references.md",
-      "bytes": 4050,
-      "sha256": "f32ec2ec86c6454f9624f65e644fc1ad88711f9948e040a0013cbc005e64469e"
-    },
-    {
-      "path": "report/Mehrdad_Naderi_Rebuilt_Report.pdf",
-      "bytes": 1034912,
-      "sha256": "d0219c47c596acbc32ec36be41b338fbac8643d94fa22d2d25a22d7c4bdc7b52"
     },
     {
       "path": "scripts/build_figures.py",
