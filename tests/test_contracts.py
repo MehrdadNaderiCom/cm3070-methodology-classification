@@ -11,6 +11,7 @@ from study.core import (
 )
 from cdfm.models.embeddings import SentenceEmbedder
 from cdfm.evaluation.folds import safe_split_count
+from scripts.run_study_analysis import reason_for
 
 
 def frame(n=10):
@@ -144,3 +145,29 @@ def test_statistical_identity():
     assert clopper_pearson(0, 10)[0] == 0
     assert clopper_pearson(10, 10)[1] == 1
     assert wilson(5, 10)[0] < .5 < wilson(5, 10)[1]
+
+
+@pytest.mark.parametrize("decision_type,expected", [
+    ("disagreement_resolved", "adjudicated disagreement after full-text re-read"),
+    ("concordant_revised", "concordant legacy revision confirmed on re-read"),
+    ("insufficient_evidence_resolved",
+     "insufficient-evidence flag resolved after full-text check"),
+    ("concordant_retained", "concordant agreement retained"),
+])
+def test_reason_for_known_decision_types(decision_type, expected):
+    assert reason_for({"decision_type": decision_type}) == expected
+
+
+def test_reason_for_missing_decision_type_raises():
+    with pytest.raises(ValueError):
+        reason_for({})
+
+
+def test_reason_for_none_decision_type_raises():
+    with pytest.raises(ValueError):
+        reason_for({"decision_type": None})
+
+
+def test_reason_for_unknown_decision_type_raises():
+    with pytest.raises(ValueError):
+        reason_for({"decision_type": "UNKNOWN_VALUE"})

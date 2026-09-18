@@ -51,14 +51,24 @@ def reason_for(row):
     deterministic label derived from the recorded decision_type. The column is
     therefore named decision_summary, not adjudication_reason, to avoid implying
     a human-authored rationale.
+
+    The "concordant agreement retained" summary is returned only for an explicit
+    concordant_retained marker (a record with no dispute and no adjudication
+    entry). A missing or unrecognised decision_type raises, rather than being
+    silently relabelled as concordant, so data problems are not hidden.
     """
-    if row.get("decision_type") == "disagreement_resolved":
+    dt = row.get("decision_type")
+    if dt == "disagreement_resolved":
         return "adjudicated disagreement after full-text re-read"
-    if row.get("decision_type") == "concordant_revised":
+    if dt == "concordant_revised":
         return "concordant legacy revision confirmed on re-read"
-    if row.get("decision_type") == "insufficient_evidence_resolved":
+    if dt == "insufficient_evidence_resolved":
         return "insufficient-evidence flag resolved after full-text check"
-    return "concordant agreement retained"
+    if dt == "concordant_retained":
+        return "concordant agreement retained"
+    if dt is None or (isinstance(dt, float) and pd.isna(dt)):
+        raise ValueError("missing decision_type for record; cannot infer a summary")
+    raise ValueError(f"unknown decision_type: {dt!r}")
 
 
 def main() -> None:
@@ -71,11 +81,6 @@ def main() -> None:
     if _miss:
         raise SystemExit('Private-data command. Missing:\n' + '\n'.join(_miss))
 
-    import argparse
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--force", action="store_true",
-                        help="Bypass the overwrite guard for a deliberate regeneration")
-    args, _ = parser.parse_known_args()
     # Guard against silently overwriting a sealed study result. If the final
     # confirmatory outputs already exist, stop and direct the user to a fresh
     # destination (e.g. via scripts/reproduce.py) rather than overwriting them.
@@ -83,11 +88,11 @@ def main() -> None:
                                  "test_row_results.csv",
                                  "test_confusion.csv", "test_per_class.csv")]
     existing = [p.name for p in sealed if p.exists()]
-    if existing and not args.force:
+    if existing:
         raise SystemExit(
             "Refusing to overwrite existing study outputs: " + ", ".join(existing) +
             ". Re-run into a fresh destination (e.g. python scripts/reproduce.py "
-            "--destination <new>) or pass --force for a deliberate regeneration.")
+            "--destination <new>) instead of overwriting the sealed release.")
     SCEN.mkdir(parents=True, exist_ok=True)
     registry = pd.read_csv(RECORDS / "corpus_registry.csv")
     labels = pd.read_csv(RECORDS / "adjudicated_labels.csv")
@@ -169,6 +174,11 @@ def main() -> None:
     final = final.merge(
         adjudication[["document_id", "decision_type"]], on="document_id",
         how="left")
+    # Records without an adjudication entry are concordant (no dispute), so
+    # assign them the explicit concordant_retained marker. This keeps reason_for
+    # strict: it raises on a truly missing or unknown decision_type instead of
+    # silently relabelling it as concordant.
+    final["decision_type"] = final["decision_type"].fillna("concordant_retained")
     final["decision_summary"] = final.apply(reason_for, axis=1)
     for split in ("development", "calibration", "test"):
         cols = ["document_id", "split", "domain", "final_label",
