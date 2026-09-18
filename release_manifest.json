@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T06:19:47.802630+00:00",
+  "generated_utc": "2026-09-18T06:40:17.965643+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -67,12 +67,12 @@
     {
       "path": "data/demo/demo_model.bin",
       "bytes": 20996,
-      "sha256": "629545a861e0218fd401ece7821f7cbdf3fbdcb8a8d6769631f535a11dd9e805"
+      "sha256": "b13fcb63815171a93bbfe28049b8b44d677a71f2cbace1d283fab2972badb8f2"
     },
     {
       "path": "data/demo/demo_model.manifest.json",
       "bytes": 231,
-      "sha256": "4fb614ebae269e84de2ec49e6d743904b4a7f2b74d011fe5d8a3f4058f65f9b1"
+      "sha256": "392ab8a23f2e85e3e718b341630f46231702b06e1096a4fa5c8a5267a872513e"
     },
     {
       "path": "data/demo_input.json",
@@ -456,8 +456,8 @@
     },
     {
       "path": "scripts/run_study_analysis.py",
-      "bytes": 25273,
-      "sha256": "868d5540650abad1be7b3ded1e89c33f7c6eff2752a26231a186deb4498a4de2"
+      "bytes": 26632,
+      "sha256": "0889084c07cd1b2a3789173803c8e5d8d63389e381b4f24e365eaa6a2f3b0e20"
     },
     {
       "path": "scripts/verify_release.py",
@@ -481,8 +481,8 @@
     },
     {
       "path": "tests/test_contracts.py",
-      "bytes": 6679,
-      "sha256": "45af10120671325a85d54569faba274dbf112c9451f3cc266139258289da8f75"
+      "bytes": 7964,
+      "sha256": "47c798d0582d5fe8d4b1d4ce6f2808b14b6ed529b7984349c73bd0ca1f6b4371"
     }
   ],
   "self_exclusion": "release_manifest.json is not self-hashed",

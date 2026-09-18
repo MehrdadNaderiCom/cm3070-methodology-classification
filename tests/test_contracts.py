@@ -11,7 +11,7 @@ from study.core import (
 )
 from cdfm.models.embeddings import SentenceEmbedder
 from cdfm.evaluation.folds import safe_split_count
-from scripts.run_study_analysis import reason_for
+from scripts.run_study_analysis import reason_for, summary_for_row
 
 
 def frame(n=10):
@@ -171,3 +171,31 @@ def test_reason_for_none_decision_type_raises():
 def test_reason_for_unknown_decision_type_raises():
     with pytest.raises(ValueError):
         reason_for({"decision_type": "UNKNOWN_VALUE"})
+
+
+def test_summary_for_row_in_log_known():
+    assert summary_for_row({"in_log": True, "decision_type": "disagreement_resolved"}) == \
+        "adjudicated disagreement after full-text re-read"
+    assert summary_for_row({"in_log": True, "decision_type": "concordant_retained"}) == \
+        "concordant agreement retained"
+
+
+def test_summary_for_row_in_log_missing_raises():
+    with pytest.raises(ValueError):
+        summary_for_row({"in_log": True, "decision_type": None})
+    with pytest.raises(ValueError):
+        summary_for_row({"in_log": True, "decision_type": ""})
+    with pytest.raises(ValueError):
+        summary_for_row({"in_log": True, "decision_type": "UNKNOWN"})
+
+
+def test_summary_for_row_not_in_log_concordant():
+    assert summary_for_row({"in_log": False, "A_label": "X", "B_label": "X",
+                            "final_label": "X"}) == "concordant agreement retained"
+
+
+def test_summary_for_row_not_in_log_mismatch_unknown():
+    assert summary_for_row({"in_log": False, "A_label": "X", "B_label": "Y",
+                            "final_label": "X"}) == "unknown decision category"
+    assert summary_for_row({"in_log": False, "A_label": None, "B_label": "X",
+                            "final_label": "X"}) == "unknown decision category"

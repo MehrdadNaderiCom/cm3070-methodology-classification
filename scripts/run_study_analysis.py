@@ -71,6 +71,32 @@ def reason_for(row):
     raise ValueError(f"unknown decision_type: {dt!r}")
 
 
+def summary_for_row(row):
+    """Compute the decision summary for one row of the merged analysis frame.
+
+    Records that appear in the adjudication log must carry a valid decision_type;
+    a missing or unknown value raises so the data problem is not hidden. Records
+    that are absent from the log are treated as concordant only when reader A and
+    reader B labels are present and both equal the final label; otherwise the
+    status is left as "unknown decision category" rather than assumed concordant.
+    """
+    if row.get("in_log"):
+        dt = row.get("decision_type")
+        if dt is None or (isinstance(dt, float) and pd.isna(dt)) or str(dt).strip() == "":
+            raise ValueError(
+                f"missing decision_type for adjudicated record "
+                f"{row.get('document_id')}")
+        return reason_for(row)
+    a = row.get("A_label")
+    b = row.get("B_label")
+    f = row.get("final_label")
+    if pd.isna(a) or pd.isna(b) or pd.isna(f):
+        return "unknown decision category"
+    if a == b == f:
+        return "concordant agreement retained"
+    return "unknown decision category"
+
+
 def main() -> None:
     _root = Path(__file__).resolve().parents[1]
     _need = [
@@ -171,15 +197,18 @@ def main() -> None:
     # ---- Adjudicated labels with reasons ------------------------------------
     adjudication = adjudication.rename(columns={"A": "A_label", "B": "B_label"})
     final = registry.merge(labels, on="document_id", validate="one_to_one")
+    # Add reader A/B labels from the raw forms (every record was labelled by both
+    # readers), so a record absent from the adjudication log can be checked for
+    # genuine concordance rather than assumed concordant.
+    a_map = raw_a[raw_a.reader_role.eq("A")].set_index("document_id").methodology5
+    b_map = raw_b[raw_b.reader_role.eq("B")].set_index("document_id").methodology5
+    final["A_label"] = final.document_id.map(a_map)
+    final["B_label"] = final.document_id.map(b_map)
     final = final.merge(
         adjudication[["document_id", "decision_type"]], on="document_id",
         how="left")
-    # Records without an adjudication entry are concordant (no dispute), so
-    # assign them the explicit concordant_retained marker. This keeps reason_for
-    # strict: it raises on a truly missing or unknown decision_type instead of
-    # silently relabelling it as concordant.
-    final["decision_type"] = final["decision_type"].fillna("concordant_retained")
-    final["decision_summary"] = final.apply(reason_for, axis=1)
+    final["in_log"] = final.document_id.isin(adjudication.document_id)
+    final["decision_summary"] = final.apply(summary_for_row, axis=1)
     for split in ("development", "calibration", "test"):
         cols = ["document_id", "split", "domain", "final_label",
                 "decision_summary"]
