@@ -1,0 +1,87 @@
+# Source metadata to field label.
+#
+# Written after the corpus was collected, against the categories that actually
+# appear in it, rather than guessed in advance. Anything absent from both tables
+# yields a blank field label. A blank is honest; an invented label is not.
+
+version: 1
+
+# arXiv primary category area, as recorded in the frozen 50 paper sample.
+arxiv:
+  Machine Learning: Artificial Intelligence and Machine Learning
+  AI: Artificial Intelligence and Machine Learning
+  NLP: Artificial Intelligence and Machine Learning
+  Computer Vision: Artificial Intelligence and Machine Learning
+  Robotics: Artificial Intelligence and Machine Learning
+  Software Engineering: Software Engineering
+  HCI: Human Computer Interaction
+  Databases: Data Management and Analytics
+  Information Retrieval: Data Management and Analytics
+  Distributed Computing: Networks and Distributed Systems
+  Information Theory: Theory and Algorithms
+  Architecture: Networks and Distributed Systems
+
+# Robotics is placed under Artificial Intelligence and Machine Learning because
+# the robotics papers in this corpus are learning based rather than mechanical.
+# Architecture is placed under Networks and Distributed Systems as the closest
+# systems category available. Both are judgement calls affecting five papers in
+# total and are recorded here so they can be checked.
+
+# OpenAlex primary topic subfield, as returned for the 180 harvested papers.
+openalex:
+  Management Information Systems: Information Systems Management
+  Information Systems: Information Systems Management
+  Information Systems and Management: Information Systems Management
+  Strategy and Management: Information Systems Management
+  Management of Technology and Innovation: Information Systems Management
+  Business and International Management: Information Systems Management
+  Management Science and Operations Research: Information Systems Management
+  Organizational Behavior and Human Resource Management: Information Systems Management
+  Accounting: Information Systems Management
+  Finance: Information Systems Management
+  Marketing: Information Systems Management
+  Economics and Econometrics: Information Systems Management
+  General Economics, Econometrics and Finance: Information Systems Management
+  Industrial and Manufacturing Engineering: Information Systems Management
+
+  Education: Computing Education
+  Developmental and Educational Psychology: Computing Education
+
+  Artificial Intelligence: Artificial Intelligence and Machine Learning
+  Computer Vision and Pattern Recognition: Artificial Intelligence and Machine Learning
+
+  Human-Computer Interaction: Human Computer Interaction
+  Media Technology: Human Computer Interaction
+  Experimental and Cognitive Psychology: Human Computer Interaction
+
+  Software: Software Engineering
+  Control and Systems Engineering: Software Engineering
+
+  Computer Networks and Communications: Networks and Distributed Systems
+  Hardware and Architecture: Networks and Distributed Systems
+
+  Statistics and Probability: Data Management and Analytics
+  Statistical and Nonlinear Physics: Data Management and Analytics
+  Health Informatics: Data Management and Analytics
+  Health Information Management: Data Management and Analytics
+
+  Sociology and Political Science: Computing and Society
+  Political Science and International Relations: Computing and Society
+  Communication: Computing and Society
+  Social Psychology: Computing and Society
+  Applied Psychology: Computing and Society
+  Clinical Psychology: Computing and Society
+  Cognitive Neuroscience: Computing and Society
+  Demography: Computing and Society
+  Geography, Planning and Development: Computing and Society
+  Philosophy: Computing and Society
+  Safety Research: Computing and Society
+
+# Deliberately left unmapped, because no defensible computing field fits and a
+# guess would put noise into the ground truth:
+#   Computer Science Applications   too broad to distinguish a field
+#   General Health Professions      outside computing
+#   Health, Toxicology and Mutagenesis  outside computing
+#   Food Science                    outside computing
+#   Architecture                    the built environment, not computer architecture
+#   Electrical and Electronic Engineering  adjacent to computing, not within it

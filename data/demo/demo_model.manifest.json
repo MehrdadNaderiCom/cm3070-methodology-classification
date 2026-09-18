@@ -1,0 +1,5 @@
+{
+  "family": "public-demo-tfidf-logistic",
+  "model_sha256": "80c18caeaf5e9ef36438e2d446e768c0e37ce05161d9c9dd26c8822c38a9aca3",
+  "note": "Trained only on authored demo texts in this folder. Not the archival study model."
+}

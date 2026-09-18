@@ -1,0 +1,25 @@
+{
+  "status": "exploratory; not the frozen headline; computed on the valid 111-record subset",
+  "headline_alpha": 0.1,
+  "practical_alpha": 0.2,
+  "selected_model": "Cue",
+  "test_n": 111,
+  "errors": 48,
+  "alpha_0.10": {
+    "coverage": 0.9459459459459459,
+    "covered_n": 105,
+    "mean_set_size": 3.98,
+    "review_n": 100,
+    "errors_captured": 45,
+    "wrong_singletons": 3
+  },
+  "alpha_0.20": {
+    "coverage": 0.8018018018018018,
+    "covered_n": 89,
+    "mean_set_size": 1.76,
+    "review_n": 58,
+    "errors_captured": 28,
+    "wrong_singletons": 20
+  },
+  "interpretation": "A lighter flag rate at alpha 0.20 reduces workload but leaves more errors outside review. The frozen submission result remains alpha 0.10. Ten records excluded per config/excluded_records.json."
+}

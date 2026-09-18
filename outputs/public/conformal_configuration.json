@@ -1,0 +1,17 @@
+{
+  "alpha": 0.1,
+  "n": 59,
+  "rank": 54,
+  "qhat": 0.8947368421052632,
+  "classes": [
+    "Case Study",
+    "Conceptual",
+    "Design/Engineering",
+    "Experimental",
+    "Review"
+  ],
+  "tie_rule": "include when score <= qhat",
+  "review_rule": "set_size != 1",
+  "selected_model": "Cue",
+  "note": "refit on 59 valid calibration records after excluding EXT147; clocks were not rewritten"
+}

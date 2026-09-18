@@ -1,0 +1,8 @@
+artefact,redistribution_status,licence,note
+"src/, tests/, scripts/classify.py, scripts/verify_release.py",yes,MIT,code
+data/demo/*,yes,authored demo,synthetic texts written for this repository
+data/public/paper_index.csv,identifiers_titles_labels,bibliographic metadata; not publisher PDFs,abstracts omitted
+outputs/public/*,aggregate_results,study aggregates,no reader timestamps
+outputs/figures/*,yes,authored figures,generated from the private analysis
+report/*.md and report PDF,yes,authored report,Word source kept in the private archive
+"raw reader forms, embeddings, archival model binary",no,private archive only,see CM3070_Private_Archive.zip

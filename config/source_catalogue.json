@@ -1,0 +1,50 @@
+[
+  {
+    "author": "Artstein and Poesio",
+    "year": "2008",
+    "title": "Inter-Coder Agreement for Computational Linguistics",
+    "url": "https://aclanthology.org/J08-4004.pdf"
+  },
+  {
+    "author": "Cawley and Talbot",
+    "year": "2010",
+    "title": "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation",
+    "url": "https://www.jmlr.org/papers/v11/cawley10a.html"
+  },
+  {
+    "author": "Angelopoulos and Bates",
+    "year": "2021; revision 2022",
+    "title": "A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification",
+    "url": "https://arxiv.org/pdf/2107.07511"
+  },
+  {
+    "author": "Reimers and Gurevych",
+    "year": "2019",
+    "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+    "url": "https://arxiv.org/abs/1908.10084"
+  },
+  {
+    "author": "Singh et al.",
+    "year": "2023",
+    "title": "SciRepEval: A Multi-Format Benchmark for Scientific Document Representations",
+    "url": "https://arxiv.org/abs/2211.13308"
+  },
+  {
+    "author": "Page et al. / PRISMA",
+    "year": "2021",
+    "title": "PRISMA 2020 statement",
+    "url": "https://www.prisma-statement.org/prisma-2020-statement"
+  },
+  {
+    "author": "Bansal et al.",
+    "year": "2021",
+    "title": "Does the Whole Exceed its Parts? The Effect of AI Explanations on Complementary Team Performance",
+    "url": "https://idl.cs.washington.edu/files/2021-AIExplanationsTeamPerformance-CHI.pdf"
+  },
+  {
+    "author": "Hugging Face",
+    "year": "retrieved September 2026",
+    "title": "all-mpnet-base-v2 repository metadata",
+    "url": "https://huggingface.co/api/models/sentence-transformers/all-mpnet-base-v2"
+  }
+]

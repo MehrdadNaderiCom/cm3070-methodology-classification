@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "decision": "exclude from confirmatory calibration and test",
+  "reason": "recorded retrieval preceded arXiv publication; original clocks were not rewritten",
+  "document_ids": [
+    "EXT003", "EXT013", "EXT027", "EXT062", "EXT079",
+    "EXT081", "EXT086", "EXT118", "EXT119", "EXT147"
+  ]
+}

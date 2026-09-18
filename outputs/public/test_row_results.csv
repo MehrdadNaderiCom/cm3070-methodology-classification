@@ -1,0 +1,112 @@
+document_id,split,domain,label,top1,set_size,review,correct
+EXT000,test,AI adoption,Design/Engineering,Experimental,5,True,False
+EXT004,test,AI adoption,Design/Engineering,Experimental,5,True,False
+EXT005,test,AI adoption,Design/Engineering,Conceptual,5,True,False
+EXT006,test,AI adoption,Experimental,Experimental,5,True,True
+EXT008,test,AI adoption,Case Study,Case Study,5,True,True
+EXT009,test,AI adoption,Case Study,Case Study,3,True,True
+EXT010,test,AI adoption,Case Study,Case Study,5,True,True
+EXT012,test,AI adoption,Conceptual,Review,2,True,False
+EXT014,test,AI adoption,Experimental,Experimental,5,True,True
+EXT015,test,AI adoption,Review,Review,5,True,True
+EXT016,test,AI adoption,Design/Engineering,Conceptual,5,True,False
+EXT018,test,AI adoption,Experimental,Experimental,1,False,True
+EXT020,test,AI adoption,Design/Engineering,Experimental,5,True,False
+EXT024,test,AI adoption,Experimental,Design/Engineering,5,True,False
+EXT026,test,AI adoption,Case Study,Case Study,5,True,True
+EXT028,test,AI adoption,Case Study,Case Study,5,True,True
+EXT029,test,AI adoption,Experimental,Experimental,5,True,True
+EXT032,test,AI adoption,Design/Engineering,Case Study,5,True,False
+EXT033,test,AI adoption,Design/Engineering,Case Study,2,True,False
+EXT034,test,AI adoption,Conceptual,Experimental,2,True,False
+EXT035,test,AI adoption,Design/Engineering,Conceptual,3,True,False
+EXT036,test,AI adoption,Experimental,Experimental,1,False,True
+EXT038,test,AI adoption,Design/Engineering,Experimental,2,True,False
+EXT040,test,AI adoption,Design/Engineering,Case Study,5,True,False
+EXT042,test,AI adoption,Design/Engineering,Conceptual,5,True,False
+EXT043,test,AI adoption,Experimental,Experimental,5,True,True
+EXT044,test,AI adoption,Conceptual,Conceptual,5,True,True
+EXT045,test,AI adoption,Design/Engineering,Design/Engineering,5,True,True
+EXT046,test,AI adoption,Experimental,Experimental,5,True,True
+EXT047,test,AI adoption,Experimental,Experimental,5,True,True
+EXT049,test,AI adoption,Experimental,Experimental,5,True,True
+EXT051,test,AI adoption,Design/Engineering,Experimental,3,True,False
+EXT052,test,AI adoption,Experimental,Experimental,5,True,True
+EXT054,test,AI adoption,Review,Review,1,False,True
+EXT055,test,AI adoption,Review,Review,5,True,True
+EXT056,test,AI adoption,Experimental,Experimental,5,True,True
+EXT059,test,AI adoption,Design/Engineering,Design/Engineering,5,True,True
+EXT060,test,AI adoption,Conceptual,Experimental,5,True,False
+EXT061,test,AI adoption,Design/Engineering,Experimental,5,True,False
+EXT064,test,AI adoption,Experimental,Case Study,5,True,False
+EXT067,test,AI adoption,Case Study,Case Study,1,False,True
+EXT068,test,AI adoption,Experimental,Experimental,5,True,True
+EXT070,test,AI adoption,Experimental,Experimental,2,True,True
+EXT071,test,AI adoption,Case Study,Case Study,5,True,True
+EXT073,test,AI adoption,Experimental,Experimental,5,True,True
+EXT074,test,AI adoption,Experimental,Experimental,5,True,True
+EXT076,test,AI adoption,Design/Engineering,Design/Engineering,5,True,True
+EXT078,test,AI adoption,Conceptual,Review,5,True,False
+EXT082,test,AI adoption,Design/Engineering,Design/Engineering,5,True,True
+EXT084,test,AI adoption,Experimental,Experimental,5,True,True
+EXT087,test,AI adoption,Design/Engineering,Review,2,True,False
+EXT088,test,AI adoption,Experimental,Conceptual,5,True,False
+EXT089,test,AI adoption,Design/Engineering,Design/Engineering,5,True,True
+EXT090,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT093,test,Computing education,Experimental,Experimental,5,True,True
+EXT094,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT095,test,Computing education,Review,Review,2,True,True
+EXT096,test,Computing education,Experimental,Case Study,5,True,False
+EXT098,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT099,test,Computing education,Case Study,Case Study,5,True,True
+EXT100,test,Computing education,Design/Engineering,Review,1,False,False
+EXT102,test,Computing education,Review,Experimental,2,True,False
+EXT103,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT104,test,Computing education,Case Study,Experimental,2,True,False
+EXT105,test,Computing education,Experimental,Experimental,1,False,True
+EXT106,test,Computing education,Case Study,Case Study,5,True,True
+EXT108,test,Computing education,Experimental,Experimental,5,True,True
+EXT110,test,Computing education,Case Study,Case Study,2,True,True
+EXT114,test,Computing education,Experimental,Experimental,5,True,True
+EXT116,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT117,test,Computing education,Design/Engineering,Conceptual,3,True,False
+EXT122,test,Computing education,Design/Engineering,Experimental,2,True,False
+EXT123,test,Computing education,Conceptual,Design/Engineering,5,True,False
+EXT124,test,Computing education,Experimental,Experimental,5,True,True
+EXT125,test,Computing education,Conceptual,Conceptual,5,True,True
+EXT126,test,Computing education,Experimental,Experimental,5,True,True
+EXT128,test,Computing education,Experimental,Experimental,1,False,True
+EXT130,test,Computing education,Design/Engineering,Experimental,1,False,False
+EXT132,test,Computing education,Conceptual,Experimental,5,True,False
+EXT133,test,Computing education,Design/Engineering,Design/Engineering,2,True,True
+EXT134,test,Computing education,Experimental,Experimental,5,True,True
+EXT135,test,Computing education,Experimental,Experimental,5,True,True
+EXT136,test,Computing education,Design/Engineering,Review,5,True,False
+EXT137,test,Computing education,Experimental,Review,2,True,False
+EXT139,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT141,test,Computing education,Design/Engineering,Experimental,5,True,False
+EXT142,test,Computing education,Review,Review,2,True,True
+EXT144,test,Computing education,Conceptual,Conceptual,5,True,True
+EXT145,test,Computing education,Experimental,Experimental,5,True,True
+EXT146,test,Computing education,Conceptual,Review,5,True,False
+EXT149,test,Computing education,Design/Engineering,Design/Engineering,5,True,True
+EXT150,test,Computing education,Design/Engineering,Design/Engineering,5,True,True
+EXT151,test,Computing education,Experimental,Experimental,5,True,True
+EXT152,test,Computing education,Conceptual,Experimental,5,True,False
+EXT154,test,Computing education,Experimental,Experimental,2,True,True
+EXT157,test,Computing education,Conceptual,Experimental,5,True,False
+EXT158,test,Computing education,Experimental,Experimental,1,False,True
+EXT160,test,Computing education,Design/Engineering,Experimental,2,True,False
+EXT161,test,Computing education,Design/Engineering,Experimental,2,True,False
+EXT163,test,Computing education,Experimental,Experimental,5,True,True
+EXT164,test,Computing education,Review,Experimental,5,True,False
+EXT166,test,Computing education,Experimental,Experimental,5,True,True
+EXT168,test,Computing education,Design/Engineering,Experimental,1,False,False
+EXT169,test,Computing education,Case Study,Experimental,3,True,False
+EXT171,test,Computing education,Design/Engineering,Design/Engineering,5,True,True
+EXT172,test,Computing education,Design/Engineering,Design/Engineering,5,True,True
+EXT174,test,Computing education,Design/Engineering,Design/Engineering,2,True,True
+EXT176,test,Computing education,Design/Engineering,Design/Engineering,5,True,True
+EXT177,test,Computing education,Design/Engineering,Experimental,3,True,False
+EXT178,test,Computing education,Experimental,Experimental,1,False,True
+EXT179,test,Computing education,Design/Engineering,Design/Engineering,2,True,True

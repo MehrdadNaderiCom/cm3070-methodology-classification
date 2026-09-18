@@ -1,0 +1,99 @@
+# Venue populations that supply the discipline label.
+#
+# A paper's discipline is inherited from where it was published. That puts the
+# label outside the annotator's judgement, where an examiner can check it, and it
+# is the reason the discipline task became testable at all. See D05.
+#
+# Counts recorded below were measured against OpenAlex on 9 August 2026 using
+# base_filter. They are here so that a later run can tell whether the population
+# it is sampling from is the same one.
+
+version: 1
+
+base_filter: "has_abstract:true,type:article,language:en,publication_year:>2009"
+
+# No single venue is allowed to dominate a discipline. Without a cap, the largest
+# journal supplies most of the class and the model learns that journal's house
+# style rather than the discipline.
+#
+# Set so that every declared venue contributes rather than the first few filling
+# the target. Eight venues per discipline at a target of 90 gives 12. A first
+# harvest at 26 drew the whole Information Systems class from four journals,
+# which is the concentration D05 names as its revisit condition.
+per_venue_cap: 12
+
+disciplines:
+
+  Information Systems:
+    rationale: >
+      The eight journals that the Association for Information Systems designates
+      its senior scholars' basket. Using an externally maintained list rather
+      than a hand picked one means the sampling frame was not chosen to suit the
+      result.
+    venues:
+      - name: MIS Quarterly
+        issn: "0276-7783"
+        measured_count: 1151
+      - name: Information Systems Research
+        issn: "1047-7047"
+        measured_count: 1233
+      - name: Journal of the Association for Information Systems
+        issn: "1536-9323"
+        measured_count: 13841
+      - name: European Journal of Information Systems
+        issn: "0960-085X"
+        measured_count: 707
+      - name: Information Systems Journal
+        issn: "1350-1917"
+        measured_count: 575
+      - name: Journal of Management Information Systems
+        issn: "0742-1222"
+        measured_count: 705
+      - name: Journal of Information Technology
+        issn: "0268-3962"
+        measured_count: 376
+      - name: Journal of Strategic Information Systems
+        issn: "0963-8687"
+        measured_count: 79
+
+  Information Technology:
+    rationale: >
+      Venues whose stated scope is the application, deployment, management,
+      support and teaching of computing technology, rather than the study of
+      computation itself or of organisational information systems. There is no
+      externally maintained basket for this discipline as there is for
+      Information Systems, so the selection is the project's own and is recorded
+      here in full. That asymmetry is a limitation and is reported as one.
+    venues:
+      - name: IT Professional
+        issn: "1520-9202"
+        measured_count: 1294
+      - name: Information Technology & People
+        issn: "0959-3845"
+        measured_count: 1079
+      - name: Education and Information Technologies
+        issn: "1360-2357"
+        measured_count: 978
+      - name: ACM Transactions on Computing Education
+        issn: "1946-6226"
+        measured_count: 570
+      - name: Journal of Information Technology Education Research
+        issn: "1547-9714"
+        measured_count: 421
+      - name: Information Systems Frontiers
+        issn: "1387-3326"
+        measured_count: 334
+      - name: International Journal of Information Management
+        issn: "0268-4012"
+        measured_count: 216
+      - name: Information Technology and Management
+        issn: "1385-951X"
+        measured_count: 27
+
+  Computer Science:
+    rationale: >
+      Supplied by the frozen 50 paper arXiv sample already reported in the
+      Preliminary Report, extended if the class needs balancing. arXiv cs.* is a
+      Computer Science archive, so membership is the sampling frame's guarantee.
+    source: arXiv
+    query: "cat:cs.*"

@@ -1,0 +1,347 @@
+# The three label sets, their definitions, and the cue phrases used as a
+# reading aid in the annotation tool.
+#
+# This file is the single source for the annotation guide, the pre-sort rules and
+# the label validation. docs/annotation_guide.md is generated from it, so the
+# guide can never drift from what the code actually does.
+#
+# Cue phrases are evidence shown to the annotator, not a classifier. A proposed
+# label is a starting point for a human decision and is never written as a final
+# methodology label.
+
+version: 2
+
+methodology:
+  granularity: 7
+  note: >
+    The seven class set is the full taxonomy named in section 3.3 of the
+    Preliminary Report. The five class set used by the prototype is derived from
+    it by the mapping below, so both can be reported from one pass of annotation
+    and the cost of the merge becomes a measurement rather than an assumption.
+
+  # A terminological collision worth stating plainly. In Oates (2006) a survey is
+  # a strategy for collecting data from a large population, usually by
+  # questionnaire. In computing writing, a survey paper is almost always a review
+  # of literature. The Preliminary Report merges Survey with Systematic
+  # Literature Review into Review, which only makes sense under the second
+  # reading, so class 2 is named Literature Survey here to remove the ambiguity.
+  # The five class mapping is unchanged by the renaming.
+  #
+  # Adding Information Systems papers to a taxonomy derived from Computer Science
+  # practice puts pressure on this: IS research uses questionnaire studies
+  # heavily, and those are empirical measurement rather than controlled
+  # manipulation. They are labelled Experimental under the widened definition
+  # below, and the annotator can raise a poor_fit flag on any paper the taxonomy
+  # handles badly. How often that flag fires is reported as a result.
+
+  classes:
+    - name: Experimental
+      maps_to_5: Experimental
+      definition: >
+        The main contribution is an empirical study that measures and compares
+        outcomes. Includes controlled experiments, benchmark evaluations,
+        ablation studies, and observational or questionnaire studies that
+        measure variables across a population.
+      positive_cues:
+        - we evaluate
+        - experiments show
+        - experimental results
+        - we benchmark
+        - we conducted an experiment
+        - compared to baseline
+        - statistically significant  # noqa: style
+        - we measure
+        - participants were
+        - respondents
+        - survey of \d+ (?:participants|respondents|users|students|professionals)
+        - questionnaire
+        - structural equation
+        - hypotheses were
+        - we test the hypothes
+        - ablation
+        # Vocabulary of quantitative empirical work in Information Systems, added
+        # after the IS and IT papers were collected. The original cue list was
+        # written against Computer Science abstracts and found nothing in them.
+        - partial least squares
+        - PLS-SEM
+        - regression (?:analysis|model)
+        - panel data
+        - longitudinal (?:study|survey|data)
+        - field experiment
+        - randomi[sz]ed
+        - control variables
+        - (?:moderating|mediating) (?:effect|role)
+        - construct validity
+        - Likert
+        - data (?:were|was) collected from
+        - we collected data
+        - sample of \d+
+        - survey instrument
+        - our (?:findings|results) (?:show|indicate|suggest)
+      negative_cues:
+        - we propose a framework
+        - this paper reviews
+        - we present a system
+      boundary: >
+        Against Design/Engineering: if an artefact is built and then evaluated,
+        ask which the abstract foregrounds. Headline artefact means
+        Design/Engineering; headline comparative result means Experimental.
+        Against Literature Survey: an experiment generates new primary data, a
+        survey synthesises data that already exists.
+
+    - name: Literature Survey
+      maps_to_5: Review
+      definition: >
+        The paper surveys or synthesises existing published work without a
+        stated, repeatable search protocol. Includes narrative reviews, overview
+        papers and taxonomies of prior work.
+      positive_cues:
+        - this (?:paper|article) (?:surveys|reviews)
+        - we survey
+        - we review
+        - a survey of
+        - an overview of
+        - state of the art
+        - taxonomy of
+        - research directions
+        - open challenges
+        - literature on
+        - we synthesi[sz]e
+        - body of literature
+        - research streams
+        - prior research on
+        - research agenda for
+      negative_cues:
+        - systematic literature review
+        - inclusion and exclusion criteria
+        - PRISMA
+      boundary: >
+        Against Systematic Literature Review: the distinction is a stated
+        protocol. Named databases, search strings, inclusion and exclusion
+        criteria or a PRISMA reference means systematic. Absent those, narrative.
+
+    - name: Systematic Literature Review
+      maps_to_5: Review
+      definition: >
+        A review conducted under a stated, repeatable protocol, reporting how
+        studies were searched for, screened and selected.
+      positive_cues:
+        - systematic literature review
+        - systematic review
+        - systematic mapping
+        - inclusion and exclusion criteria
+        - PRISMA
+        - search string
+        - primary studies
+        - we screened
+        - meta-analysis
+        - following the guidelines of
+        - Web of Science
+        - Scopus
+        - IEEE Xplore
+        - ACM Digital Library
+        - articles were (?:selected|screened|reviewed)
+        - bibliometric
+      negative_cues: []
+      boundary: >
+        Against Literature Survey: presence of an explicit protocol. A paper that
+        calls itself a systematic review but reports no protocol in the abstract
+        is judged on what the abstract actually evidences, and the disagreement
+        is recorded in notes.
+
+    - name: Case Study
+      maps_to_5: Case Study
+      definition: >
+        The paper studies a specific bounded instance in depth, such as one
+        organisation, deployment, system or cohort, and draws its findings from
+        that context.
+      positive_cues:
+        - case study
+        - case studies
+        - we report on (?:the|our) (?:deployment|experience|adoption)
+        - lessons learned
+        - lessons from
+        - in the context of
+        - at a large (?:company|organisation|organization|university)
+        - field study
+        - action research
+        - ethnograph
+        # Qualitative research vocabulary, common in Information Systems and in
+        # computing education, absent from the original Computer Science cues.
+        # Several of these also appear under Experimental, deliberately: an
+        # interview study is empirical, and which strategy it represents is
+        # exactly the judgement the annotator is there to make.
+        - in-depth interview
+        - semi-structured interview
+        - we interviewed
+        - interviews with \d+
+        - qualitative (?:study|analysis|research|approach)
+        - thematic analysis
+        - grounded theory
+        - interpretive
+        - (?:single|multiple|multi)[- ]case
+        - informants
+        - focus group
+      negative_cues:
+        - case study of four popular
+      boundary: >
+        Against Experimental: a case study is bounded and contextual and does not
+        claim generalisation from a sample. If the paper compares conditions
+        across many cases to draw a general conclusion, it is Experimental.
+        The phrase case study is sometimes used loosely to mean worked example;
+        judge the design, not the phrase.
+
+    - name: Design Science / Engineering
+      maps_to_5: Design/Engineering
+      definition: >
+        The primary contribution is the construction of an artefact: a system,
+        tool, algorithm, architecture, method, dataset or framework that is
+        built rather than only argued for. Evaluation, where present, is
+        secondary to the construction.
+      positive_cues:
+        - we present \w+, an?
+        - we propose a (?:system|tool|method|algorithm|architecture|approach)
+        - we develop
+        - we implement
+        - we design
+        - we introduce
+        - we build
+        - the architecture of
+        - design science
+        - artefact
+        - artifact
+        - prototype
+        - our system
+        - our tool
+      negative_cues:
+        - we propose a conceptual
+        - we propose a theoretical
+      boundary: >
+        Against Theoretical/Conceptual: something has to be built. A framework
+        that exists only as an argument is Conceptual. A framework shipped as
+        working software is Design.
+        Against Experimental: see the Experimental boundary.
+
+    - name: Theoretical / Conceptual
+      maps_to_5: Conceptual
+      definition: >
+        The contribution is an argument, model, definition, formalism or proof,
+        without a central empirical evaluation and without a built artefact.
+      positive_cues:
+        - we argue
+        - conceptual (?:model|framework|paper|analysis)
+        - theoretical (?:model|framework|analysis|foundation)
+        - we formalise
+        - we formalize
+        - we prove
+        - theorem
+        - ontolog
+        - this position paper
+        - we define
+        - research agenda
+        - we theorise
+        - we theorize
+        - we (?:develop|propose|advance) a theory
+        - propositions
+        - theoretical lens
+        - drawing on .{0,30}theory
+        - this (?:essay|commentary|viewpoint)
+        - we conceptuali[sz]e
+      negative_cues:
+        - we implement
+        - experimental results
+      boundary: >
+        Against Design: nothing is constructed. Against Literature Survey: the
+        contribution is the author's own argument, not a synthesis of what others
+        have found.
+
+    - name: Mixed Methods
+      maps_to_5: DOMINANT
+      definition: >
+        The paper deliberately combines two or more strategies as co-equal
+        contributions, for example a questionnaire study followed by interviews,
+        or a systematic review paired with an original experiment.
+      positive_cues:
+        - mixed methods
+        - mixed-method
+        - both quantitative and qualitative
+        - two-phase study
+        - followed by (?:semi-structured )?interviews
+        - triangulat
+        - qualitative and quantitative
+        - sequential explanatory
+        - (?:study|phase) 1 and (?:study|phase) 2
+        - two studies
+      negative_cues: []
+      boundary: >
+        Reserved for genuine co-equal combination. Most papers do more than one
+        thing; that alone does not make them mixed methods. If one strategy is
+        clearly the headline, label that strategy instead.
+      requires_dominant: true
+      dominant_note: >
+        A Mixed Methods paper also records which component dominates, so the five
+        class label can be derived. This is how the Preliminary Report describes
+        the merge: the rarely distinct Mixed Methods class is folded into its
+        dominant component.
+
+  collapse_to_5:
+    Experimental: Experimental
+    Literature Survey: Review
+    Systematic Literature Review: Review
+    Case Study: Case Study
+    Design Science / Engineering: Design/Engineering
+    Theoretical / Conceptual: Conceptual
+    Mixed Methods: DOMINANT
+
+  classes_5:
+    - Experimental
+    - Review
+    - Case Study
+    - Design/Engineering
+    - Conceptual
+
+discipline:
+  note: >
+    Assigned from the publication channel rather than by the annotator: journal for Information Systems and Information Technology, arXiv primary category for Computer Science. See D05 in the
+    decision log. The label records where the work was published, which is a
+    proxy for discipline and is checkable by anyone.
+  classes:
+    - name: Computer Science
+      definition: >
+        Study of computation, algorithms, systems and their implementation.
+    - name: Information Systems
+      definition: >
+        Study of how information systems are developed, adopted, managed and used
+        in organisations, from a socio-technical and managerial standpoint.
+    - name: Information Technology
+      definition: >
+        Application, deployment, operation and support of computing technology in
+        organisational and educational settings.
+
+field:
+  note: >
+    Derived from source metadata, not hand annotated. arXiv primary category and
+    OpenAlex primary topic subfield are mapped onto the classes below by
+    config/field_mapping.yaml. This follows the prototype, whose annotation guide
+    records field_label as the arXiv primary category area. Any record whose
+    source metadata does not map is left blank rather than guessed.
+  finding: >
+    The class list was revised after the Information Systems and Information
+    Technology papers were collected. A field taxonomy drawn from Computer
+    Science practice does not cover them: 45 of the 180 fall under social science
+    subfields in the source metadata, with Sociology and Political Science alone
+    accounting for 22. Computing and Society was added to hold that population
+    rather than forcing those papers into a computing field they do not belong
+    to. How far the field dimension transfers across disciplines is reported as a
+    result under RQ2 rather than assumed.
+  classes:
+    - Artificial Intelligence and Machine Learning
+    - Software Engineering
+    - Human Computer Interaction
+    - Security and Privacy
+    - Data Management and Analytics
+    - Networks and Distributed Systems
+    - Theory and Algorithms
+    - Computing Education
+    - Information Systems Management
+    - Computing and Society

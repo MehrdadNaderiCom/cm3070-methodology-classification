@@ -1,0 +1,11 @@
+document_id,title,abstract,label
+DEMO-CS,A case study of one hospital IT rollout,This paper reports a bounded case in one hospital. Interviews and site notes support an account of that setting.,Case Study
+DEMO-CON,A conceptual account of software trust,"We argue for a conceptual framework. The contribution is the argument, not a new sample or system.",Conceptual
+DEMO-DES,We present a toolkit for static analysis,We present a toolkit and describe the architecture. An evaluation checks that the prototype runs.,Design/Engineering
+DEMO-EXP,Comparing methods for programming error detection,"We evaluate three approaches on a held-out benchmark and compare precision, recall and running time.",Experimental
+DEMO-REV,A survey of prior work on code review tools,"This article reviews existing studies. Search, selection and synthesis of the literature are the method.",Review
+DEMO-CS2,Ethnography of a single open-source project,An in-depth study of one project. The case is the unit of analysis.,Case Study
+DEMO-CON2,Towards a taxonomy of review comments,"We introduce a conceptual taxonomy through reasoning and worked examples, without new observations.",Conceptual
+DEMO-DES2,An open-source compiler pipeline,We design and implement a compiler pipeline. Source code is available. Results validate the artefact.,Design/Engineering
+DEMO-EXP2,A user study of error messages,Participants completed tasks. We compare conditions and report statistically summarised outcomes.,Experimental
+DEMO-REV2,Systematic literature review of testing oracles,A systematic literature review. Studies were selected and synthesised; no new primary experiment is reported.,Review

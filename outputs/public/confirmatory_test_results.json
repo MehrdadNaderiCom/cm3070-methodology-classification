@@ -1,0 +1,105 @@
+{
+  "selected_model": "Cue",
+  "amendment": "post-analysis exclusion of 10 records whose recorded retrieval preceded arXiv publication; original clocks were not rewritten",
+  "excluded": [
+    "EXT003",
+    "EXT013",
+    "EXT027",
+    "EXT062",
+    "EXT079",
+    "EXT081",
+    "EXT086",
+    "EXT118",
+    "EXT119",
+    "EXT147"
+  ],
+  "calibration_n": 59,
+  "models": {
+    "Cue": {
+      "n": 111,
+      "correct": 63,
+      "accuracy": 0.5675675675675675,
+      "accuracy_ci": [
+        0.47467121788751543,
+        0.6559436328295938
+      ],
+      "macro_f1": 0.5321680984861332,
+      "macro_f1_ci": [
+        0.4196333344194135,
+        0.6261456817786271
+      ]
+    },
+    "TF-IDF": {
+      "n": 111,
+      "correct": 38,
+      "accuracy": 0.34234234234234234,
+      "accuracy_ci": [
+        0.26067404972026387,
+        0.43455796527314816
+      ],
+      "macro_f1": 0.23977820636451302,
+      "macro_f1_ci": [
+        0.1695372907845395,
+        0.31066402719233815
+      ]
+    },
+    "MPNet": {
+      "n": 111,
+      "correct": 37,
+      "accuracy": 0.3333333333333333,
+      "accuracy_ci": [
+        0.2525113750360455,
+        0.4253053265284187
+      ],
+      "macro_f1": 0.25611712207347637,
+      "macro_f1_ci": [
+        0.1725256758802033,
+        0.3422096117058564
+      ]
+    },
+    "Majority": {
+      "n": 111,
+      "correct": 37,
+      "accuracy": 0.3333333333333333,
+      "accuracy_ci": [
+        0.2525113750360455,
+        0.4253053265284187
+      ],
+      "macro_f1": 0.1,
+      "majority_class": "Experimental",
+      "source": "development-set majority class applied to the valid test subset"
+    }
+  },
+  "conformal": {
+    "n": 111,
+    "coverage_count": 105,
+    "coverage": 0.9459459459459459,
+    "coverage_exact_ci": [
+      0.8860555122954585,
+      0.9799073406955344
+    ],
+    "mean_set_size": 3.981981981981982,
+    "median_set_size": 5.0,
+    "singleton_n": 11,
+    "empty_n": 0,
+    "review_n": 100,
+    "top1_errors": 48,
+    "errors_in_review": 45,
+    "error_capture": 0.9375,
+    "singleton_correct": 8,
+    "singleton_accuracy": 0.7272727272727273,
+    "set_size_counts": {
+      "0": 0,
+      "1": 11,
+      "2": 19,
+      "3": 6,
+      "4": 0,
+      "5": 75
+    },
+    "oracle_review_accuracy_upper_bound": 0.972972972972973,
+    "calibration_empirical_coverage": 0.9322033898305084,
+    "calibration_review_n": 53,
+    "qhat": 0.8947368421052632,
+    "rank": 54
+  }
+}

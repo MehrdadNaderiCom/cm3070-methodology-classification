@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cdfm-evidence-rebuild"
+version = "1.0.0"
+description = "Auditable methodology classification and evaluation"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "legacy/src"]
+testpaths = ["tests"]

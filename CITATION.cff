@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: Computing Research Methodology Classification
+message: If you use this software, please cite it as below.
+type: software
+authors:
+  - family-names: Naderi
+    given-names: Mehrdad
+date-released: "2026-09-15"
+license: MIT
+version: "1.0"
+abstract: >-
+  CM3070 final-project package for classifying research methodology
+  from computing paper titles and abstracts, with a two-reader
+  reference audit and a conformal review layer.

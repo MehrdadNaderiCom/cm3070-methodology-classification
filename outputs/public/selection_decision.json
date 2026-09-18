@@ -1,0 +1,15 @@
+{
+  "selected": "Cue",
+  "rule": "Highest development out-of-fold macro-F1; ties broken toward the simpler model",
+  "development_macro_f1": {
+    "Majority": 0.10607028753993611,
+    "Cue": 0.5060258229877774,
+    "TF-IDF": 0.48955027042711396,
+    "MPNet": 0.38994605086015544
+  },
+  "mpnet_minus_tfidf": -0.09960421956695853,
+  "paired_95_ci": [
+    -0.18141780103730598,
+    -0.018673979469868682
+  ]
+}

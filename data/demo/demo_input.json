@@ -1,0 +1,8 @@
+[
+  {
+    "document_id": "DEMO-001",
+    "group": "DEMO-001",
+    "title": "Comparing methods for programming error detection",
+    "abstract": "We evaluate three approaches on a held-out benchmark and compare precision, recall and running time. An ablation study examines the effect of each component."
+  }
+]

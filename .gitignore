@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.env
+.env.*
+data/study_records/
+outputs/measured/
+outputs/scenario/
+outputs/model_runs/
+outputs/audit/
+data/demo/demo_model.bin
