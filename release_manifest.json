@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T05:26:24.551876+00:00",
+  "generated_utc": "2026-09-18T05:52:02.099715+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -356,8 +356,8 @@
     },
     {
       "path": "outputs/figures/figure_manifest.csv",
-      "bytes": 2923,
-      "sha256": "c2fe78c9466ed17926fcc5f4f95cfd76e5981c5457e0c16801890d3bc8cfdedc"
+      "bytes": 3333,
+      "sha256": "53a2d683a05d159c0d49411a7e629369f05c76b14acc8e7088dc662be4744fec"
     },
     {
       "path": "outputs/public/agreement_summary.json",
@@ -421,8 +421,8 @@
     },
     {
       "path": "scripts/build_figures.py",
-      "bytes": 14008,
-      "sha256": "2b8cff6b858e275fc59fd6983aa160609add9a1a4ee04599b1fa9c2bc65b681f"
+      "bytes": 14393,
+      "sha256": "730dfee0f4afba05af10f92f2248632e5671062623696860e8c81d2348be1f23"
     },
     {
       "path": "scripts/classify.py",
@@ -456,8 +456,8 @@
     },
     {
       "path": "scripts/run_study_analysis.py",
-      "bytes": 23964,
-      "sha256": "c3e5a893e0ca59fc291e149a4684bd4793e08a68ce5fa05a88e0c367e7be7d47"
+      "bytes": 24683,
+      "sha256": "02477b92b4ad2ae192ad38fef1c513f1bc4b203387573495f39d5114bff15c3b"
     },
     {
       "path": "scripts/verify_release.py",

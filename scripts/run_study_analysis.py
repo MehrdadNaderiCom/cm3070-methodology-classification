@@ -45,6 +45,13 @@ def narrative(stage, utc, files, executed_utc):
 
 
 def reason_for(row):
+    """Return a short machine-generated summary of the decision category.
+
+    This is not a quote or a reason written by the adjudicator; it is a
+    deterministic label derived from the recorded decision_type. The column is
+    therefore named decision_summary, not adjudication_reason, to avoid implying
+    a human-authored rationale.
+    """
     if row.get("decision_type") == "disagreement_resolved":
         return "adjudicated disagreement after full-text re-read"
     if row.get("decision_type") == "concordant_revised":
@@ -64,6 +71,11 @@ def main() -> None:
     if _miss:
         raise SystemExit('Private-data command. Missing:\n' + '\n'.join(_miss))
 
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--force", action="store_true",
+                        help="Bypass the overwrite guard for a deliberate regeneration")
+    args, _ = parser.parse_known_args()
     # Guard against silently overwriting a sealed study result. If the final
     # confirmatory outputs already exist, stop and direct the user to a fresh
     # destination (e.g. via scripts/reproduce.py) rather than overwriting them.
@@ -71,11 +83,11 @@ def main() -> None:
                                  "test_row_results.csv",
                                  "test_confusion.csv", "test_per_class.csv")]
     existing = [p.name for p in sealed if p.exists()]
-    if existing:
+    if existing and not args.force:
         raise SystemExit(
             "Refusing to overwrite existing study outputs: " + ", ".join(existing) +
             ". Re-run into a fresh destination (e.g. python scripts/reproduce.py "
-            "--destination <new>) instead of overwriting the sealed release.")
+            "--destination <new>) or pass --force for a deliberate regeneration.")
     SCEN.mkdir(parents=True, exist_ok=True)
     registry = pd.read_csv(RECORDS / "corpus_registry.csv")
     labels = pd.read_csv(RECORDS / "adjudicated_labels.csv")
@@ -93,7 +105,7 @@ def main() -> None:
     frozen = pd.read_parquet(SCEN / "external_predictions_frozen.parquet")
     excluded = set(json.loads((ROOT / "config/excluded_records.json").read_text())["document_ids"])
 
-    # ---- Registration 1: assumptions and analysis policy -------------------
+    # ---- Analysis plan checkpoint 1: assumptions and analysis policy --------
     dev = registry[registry.split.eq("development")]
     support = [int((labels[labels.document_id.isin(dev.document_id)]
                      .final_label == c).sum()) for c in CLASSES]
@@ -157,10 +169,10 @@ def main() -> None:
     final = final.merge(
         adjudication[["document_id", "decision_type"]], on="document_id",
         how="left")
-    final["adjudication_reason"] = final.apply(reason_for, axis=1)
+    final["decision_summary"] = final.apply(reason_for, axis=1)
     for split in ("development", "calibration", "test"):
         cols = ["document_id", "split", "domain", "final_label",
-                "adjudication_reason"]
+                "decision_summary"]
         subset = final[final.split.eq(split)]
         if split in ("calibration", "test"):
             subset = subset[~subset.document_id.isin(excluded)]
@@ -226,7 +238,7 @@ def main() -> None:
     # ---- Confirmatory test analysis -----------------------------------------
     test = registry[registry.split.eq("test") & ~registry.document_id.isin(excluded)].copy()
     test_labels = labels.set_index("document_id").loc[test.document_id].reset_index()
-    test_reason = final.set_index("document_id").adjudication_reason
+    test_reason = final.set_index("document_id").decision_summary
 
     model_rows, model_stats = [], {}
     for model in ("Cue", "TF-IDF", "MPNet"):
@@ -254,7 +266,7 @@ def main() -> None:
                 "document_id": test_labels.document_id, "split": "test",
                 "domain": test.domain.to_numpy(),
                 "label": truth,
-                "adjudication_reason": test_labels.document_id.map(test_reason).to_numpy(),
+                "decision_summary": test_labels.document_id.map(test_reason).to_numpy(),
                 "model": model,
                 **{f"p{i}": p[:, i] for i in range(5)},
                 "top1": top1,
@@ -410,15 +422,15 @@ def main() -> None:
                                      index=False)
 
     # ---- Sealed event log (documented analysis plan timestamps) --------------
-    # These are narrative timestamps that anchor each stage in the documented
-    # analysis plan. They record the sequence of the plan, not an external proof
-    # that each decision predates observing the corresponding result. The
-    # plan_timestamp is the historical anchor; executed_utc is the real time of
-    # this run.
+    # These are internal/documented timestamps that anchor each stage in the
+    # documented analysis plan. They record the sequence of the plan, not an
+    # external proof that each decision predates observing the result, and they
+    # are not a formal pre-registration document. plan_timestamp is the historical
+    # anchor; executed_utc is the real time of this run.
     from datetime import datetime, timezone
     executed_utc = datetime.now(timezone.utc).isoformat()
     event_log = [
-        narrative((1, "Registration 1: assumptions and analysis policy"),
+        narrative((1, "Analysis plan checkpoint 1: assumptions and analysis policy"),
                   "2026-09-13T09:00:00+00:00", ["assumptions.json"], executed_utc),
         narrative((2, "Raw role-A and role-B labels sealed"),
                   "2026-09-13T09:20:00+00:00",
@@ -429,7 +441,7 @@ def main() -> None:
                   ["external_predictions_frozen.parquet",
                    "selection_decision.json", "development_comparison.csv",
                    "nested_oof_predictions.parquet", "fold_manifest.json"], executed_utc),
-        narrative((4, "Registration 2: review rule locked before test analysis"),
+        narrative((4, "Analysis plan checkpoint 2: review rule locked before test analysis"),
                   "2026-09-14T08:50:00+00:00", ["conformal_configuration.json",
                                                  "conformal_scores_sorted.csv"], executed_utc),
         narrative((5, "Post-analysis amendment: exclude 10 timestamp-conflict records"),

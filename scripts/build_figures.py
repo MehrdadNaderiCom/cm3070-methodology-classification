@@ -36,12 +36,17 @@ def finish(fig, n, name, source, caption, dpi=None):
     if dpi is not None:
         png_kw["dpi"] = dpi
     fig.savefig(OUT / f"{stem}.png", **png_kw)
+    # The CreationDate is pinned to a fixed value so the figure PDFs are
+    # byte-for-byte reproducible across runs. This is an intentional
+    # reproducibility choice, not a claim that the file was created at that time;
+    # the real generation time is recorded separately in figure_manifest.csv.
     fig.savefig(OUT / f"{stem}.pdf", bbox_inches="tight", facecolor="white",
                 metadata={"Title": caption, "Author": "Mehrdad Naderi",
                           "CreationDate": datetime(2026, 9, 15, 8, 40, 0, tzinfo=timezone.utc)})
     plt.close(fig)
     MANIFEST.append({"figure": n, "name": stem, "source": source,
                      "generator": "scripts/build_figures.py",
+                     "generated_utc": datetime.now(timezone.utc).isoformat(),
                      "sha256_pdf": sha256(OUT / f"{stem}.pdf"), "caption": caption})
 
 
