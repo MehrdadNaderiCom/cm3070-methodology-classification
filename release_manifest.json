@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T04:12:12.132406+00:00",
+  "generated_utc": "2026-09-18T05:26:24.551876+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -81,23 +81,23 @@
     },
     {
       "path": "data/public/paper_index.csv",
-      "bytes": 113816,
-      "sha256": "3f943aedc89ec1826adc5d7a3312fd9bae1cd18808522c1de3ceddeee7695813"
+      "bytes": 113636,
+      "sha256": "05a24f92df475b97504ef2522c5b628ed126f41c6bdfb7144152522a628862eb"
     },
     {
       "path": "data/public/redistribution_status.csv",
-      "bytes": 661,
-      "sha256": "ecc3dd6a0b4d047e7779855b87d2a3759a2bacf4f7d5d524b4ef1b41df99684b"
+      "bytes": 689,
+      "sha256": "dd678d8d5008e8e818c4be32607fe29c6c3ac3e7aab42b378479549ad094b80e"
     },
     {
       "path": "docs/DATA_ACCESS_AND_LICENSE.md",
-      "bytes": 1056,
-      "sha256": "90c2a99ae96032d114b2ad1a77366a6b584e236d746f51b1e789d6adfd636e27"
+      "bytes": 1140,
+      "sha256": "464b6412a80ad2fdc8a0cfe4e97d9b5c4f35c4c38e98e3d00dbfa76b12c05114"
     },
     {
       "path": "docs/PROTOCOL.md",
-      "bytes": 8080,
-      "sha256": "9ef0a855b9c91b0b992d29406b849de51863561f6bd9e3bbca0794cf5d3ce9f3"
+      "bytes": 8082,
+      "sha256": "6cbce9f8980e771da75c37cae9b9d98416f09ae1cd97f307011f3ad2493de0b6"
     },
     {
       "path": "docs/RECORD_VALIDITY.md",

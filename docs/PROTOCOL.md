@@ -38,7 +38,7 @@ Compute exact agreement and Wilson intervals, unweighted Cohen's kappa with docu
 
 Resolve disagreements against the locked guide and log the evidence and final reason. If a material guide change is necessary, version the guide and re-review affected earlier records symmetrically. Consensus is not proof of truth; a common reader error may survive disagreement-only adjudication.
 
-## Registered analysis
+## Documented analysis plan
 
 Methodology5 macro-F1 on the 120-record external test is primary. Majority, cue matching, TF-IDF and MPNet are the four compared candidates; SPECTER2 is omitted from the core because it is optional and does not resolve the reference-standard problem.
 
@@ -56,7 +56,7 @@ Hash the conformal configuration separately from the point model. Do not attach 
 
 ## Test and uncertainty
 
-Join predictions and reference labels by unique ID with exact set equality. Report the registered primary metric first, then Wilson accuracy intervals, per-class support, confusion counts and domain summaries. Use 10,000 paired domain-stratified bootstrap resamples for the MPNet-minus-TF-IDF difference and one exact McNemar test for top-1 correctness.
+Join predictions and reference labels by unique ID with exact set equality. Report the defined primary metric first, then Wilson accuracy intervals, per-class support, confusion counts and domain summaries. Use 10,000 paired domain-stratified bootstrap resamples for the MPNet-minus-TF-IDF difference and one exact McNemar test for top-1 correctness.
 
 Report empirical set coverage with an exact binomial interval, set-size distribution, empty/singleton counts, workload and error capture. A singleton is not an automatic inclusion or exclusion decision. Marginal coverage does not imply coverage for every class, domain, reviewer or individual paper.
 
