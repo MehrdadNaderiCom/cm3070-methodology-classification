@@ -21,7 +21,7 @@ python scripts/demo_review.py
 
 `classify.py --case-id EXT000` prints a **stored** Cue row from `outputs/public/test_row_results.csv`. It is not a fresh prediction.
 
-Public tests: `python -m pytest` runs 35 contract tests. `python -m pytest legacy/tests -q` runs the legacy suite; tests that need the private gold sample or corpus skip with an explicit reason. Analysis commands (`scripts/run_*.py`, `scripts/reproduce.py`) are present as code but exit with a clear message unless the private archive is attached.
+Public tests: `python -m pytest` runs 46 contract tests. `python -m pytest legacy/tests -q` runs the legacy suite; tests that need the private gold sample or corpus skip with an explicit reason. Analysis commands (`scripts/run_*.py`, `scripts/reproduce.py`) are present as code but exit with a clear message unless the private archive is attached.
 
 Confirmatory numbers in `outputs/public/` exclude ten temporally invalid external records (see `docs/RECORD_VALIDITY.md`).
 

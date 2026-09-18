@@ -1,7 +1,7 @@
 {
   "title": "CM3070 public repository tree",
   "version": "1.0-public",
-  "generated_utc": "2026-09-18T06:40:17.965643+00:00",
+  "generated_utc": "2026-09-18T06:43:06.677103+00:00",
   "scope": "public GitHub payload; abstracts and raw forms omitted",
   "files": [
     {
@@ -27,7 +27,7 @@
     {
       "path": "README.md",
       "bytes": 1588,
-      "sha256": "4a32acb9d2ce9943325c8af28368c359457efd4457ee446a6d0a8e8724774750"
+      "sha256": "ef4078c2e6c15ab58b801a2822fa1cd6bc85e693c1f3f1869fb72759e1517daf"
     },
     {
       "path": "config/analysis_policy.json",
@@ -67,12 +67,12 @@
     {
       "path": "data/demo/demo_model.bin",
       "bytes": 20996,
-      "sha256": "b13fcb63815171a93bbfe28049b8b44d677a71f2cbace1d283fab2972badb8f2"
+      "sha256": "2ae67c01b3d523ae76942ea02503d41222435b5f0cccc3a6787cac45e9f5bc40"
     },
     {
       "path": "data/demo/demo_model.manifest.json",
       "bytes": 231,
-      "sha256": "392ab8a23f2e85e3e718b341630f46231702b06e1096a4fa5c8a5267a872513e"
+      "sha256": "8ea4dc5f78a11b1b4f7a854438ea60c2a3da6058393fc86838d4e91b6af5d828"
     },
     {
       "path": "data/demo_input.json",
